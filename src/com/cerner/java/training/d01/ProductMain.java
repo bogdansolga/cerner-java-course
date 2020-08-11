@@ -4,6 +4,24 @@ package com.cerner.java.training.d01;
 public class ProductMain {
 
 	public static void main(String[] args) {
+		overridingMethods();
+	}
+	
+	private static void overridingMethods() {
+		Product product = new Product(10, "Icecream");
+		/*
+		System.out.println(product);
+		System.out.println(product.toString());
+		*/
+		
+		Product second = new Product(13, "Icecream");
+		System.out.println(product.equals(second));
+		
+		System.out.println(product.hashCode());
+		System.out.println(second.hashCode());
+	}
+
+	private static void simpleExamples() {
 		Product iceCream = new Product(10, "Chocolate goodie");
 		System.out.println("The icecream name is '" + iceCream.getName() + "'");
 		
@@ -20,6 +38,9 @@ public class ProductMain {
 		
 		System.out.println(iceCream instanceof Product);
 		System.out.println(tablet instanceof Product);
+		
+		String anId = "23";
+		Product another = new Product(Integer.parseInt(anId), "Goodies");
 	}
 	
 	/*
