@@ -1,7 +1,7 @@
 package com.cerner.java.training.d01;
 
 // data holding class
-public class Product { // --> a classical POJO example (Plain Old Java Object)
+public class Product implements Comparable<Product> { // --> a classical POJO example (Plain Old Java Object)
 	
 	private static final String TABLE_NAME = "product";
 	
@@ -80,5 +80,10 @@ public class Product { // --> a classical POJO example (Plain Old Java Object)
 			return false;
 		
 		return true;
+	}
+
+	@Override
+	public int compareTo(Product o) {
+		return Integer.compare(id, o.id);
 	}
 }
