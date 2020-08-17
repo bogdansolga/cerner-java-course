@@ -2,7 +2,6 @@ package com.cerner.java.training.d05.streams;
 
 import java.io.File;
 import java.io.FileReader;
-import java.io.InputStreamReader;
 
 public class StreamsMain {
 
