@@ -14,6 +14,7 @@ import java.util.Map.Entry;
 import java.util.Queue;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.Vector;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import com.cerner.java.training.d01.Product;
@@ -34,7 +35,17 @@ public class CollectionsMain {
 		
 		//iteratingOverCollections();
 		
-		queues();
+		//queues();
+		
+		workingWithFinalObjects();
+	}
+
+	private static void workingWithFinalObjects() {
+		final List<String> finalListOfStrings = new ArrayList<>();
+		finalListOfStrings.add("Something"); // adding & removing items to a final list is always allowed
+		finalListOfStrings.remove(0);
+		
+		//finalListOfStrings = new Vector<>(); // re-initializing a final object is _not_ allowed
 	}
 
 	private static void queues() {

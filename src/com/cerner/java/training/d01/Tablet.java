@@ -19,4 +19,6 @@ public class Tablet extends Product {
 	public void process() {
 		System.out.println("Processing a Tablet...");
 	}
+	
+	
 }
