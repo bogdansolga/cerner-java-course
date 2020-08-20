@@ -1,7 +1,9 @@
 package com.cerner.java.training.d01;
 
+import java.io.Serializable;
+
 // data holding class
-public class Product implements Comparable<Product> { // --> a classical POJO example (Plain Old Java Object)
+public class Product implements Comparable<Product>, Serializable { // --> a classical POJO example (Plain Old Java Object)
 	
 	private static final String TABLE_NAME = "product";
 	
@@ -14,7 +16,7 @@ public class Product implements Comparable<Product> { // --> a classical POJO ex
 	private String name;
 	
 	// default constructor; available even if it's not explicitly created
-	//public Product() {}
+	public Product() {}
 
 	public Product(int id, String name) {
 		this.id = id;

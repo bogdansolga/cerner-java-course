@@ -1,1 +1,4 @@
 Some text to process
+
+And some other text,
+on more lines

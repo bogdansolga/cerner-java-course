@@ -11,7 +11,9 @@ public class StringsMain {
 		
 		//stringBuilderAndBuffer();
 		
-		stringTokenizing();
+		//stringTokenizing();
+		
+		stringsAreImmutable();
 	}
 
 	private static void stringTokenizing() {
@@ -40,5 +42,13 @@ public class StringsMain {
 		
 		List<String> words = Arrays.asList(string.split(" "));
 		System.out.println(words);
+	}
+	
+	private static void stringsAreImmutable() {
+		String today = "Is raining outside";
+		String subString = today.substring(5, 10); // each time when we invoke a method on a String, we _must_ obtain the resulted object
+		System.out.println(subString);
+		
+		System.out.println(today);
 	}
 }
