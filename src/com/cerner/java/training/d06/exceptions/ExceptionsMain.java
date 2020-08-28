@@ -8,15 +8,19 @@ public class ExceptionsMain {
 	public static void main(String[] args) {
 		//simpleExceptions();
 		
-		try {
-			usingCheckedExceptions();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+		usingCheckedExceptions();
 	}
 
-	private static void usingCheckedExceptions() throws FileNotFoundException {
-		FileInputStream fileInputStream = new FileInputStream("some-text.txt");
+	private static void usingCheckedExceptions() {
+		try {
+			FileInputStream fileInputStream = new FileInputStream("some-text.txt");
+		} catch (FileNotFoundException e) { // catching a checked exception
+			e.printStackTrace();
+			// generating an unchecked exception from it --> no need for the caller to handle it
+			throw new IllegalArgumentException(e); // --> exception type changing
+			
+			// throwing an exception = a short-circuiting action --> it interrupts the program flow
+		}
 	}
 
 	private static void simpleExceptions() {

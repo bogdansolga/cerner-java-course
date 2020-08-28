@@ -14,6 +14,7 @@ public class Product implements Comparable<Product>, Serializable { // --> a cla
 	
 	private int id;
 	private String name;
+	private double price;
 	
 	// default constructor; available even if it's not explicitly created
 	public Product() {}
@@ -21,6 +22,12 @@ public class Product implements Comparable<Product>, Serializable { // --> a cla
 	public Product(int id, String name) {
 		this.id = id;
 		this.name = name;
+	}
+	
+	public Product(int id, String name, double price) {
+		this.id = id;
+		this.name = name;
+		this.price = price;
 	}
 
 	public int getId() {
@@ -39,6 +46,14 @@ public class Product implements Comparable<Product>, Serializable { // --> a cla
 		this.name = name;
 	}
 	
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
 	void processName() {
 		System.out.println(TABLE_NAME);
 		System.out.println("Processing the '" + name + "'...");
@@ -49,13 +64,23 @@ public class Product implements Comparable<Product>, Serializable { // --> a cla
 		return new Product(id, name);
 	}
 	
-	public void process() {
+	public synchronized void process() { //synchronized --> just one thread can execute the method at any time
 		System.out.println("Processing a Product...");
 	}
 
 	@Override
 	public String toString() {
 		return id + ", " + name;
+	}
+	
+	public void displayDetails() {
+		System.out.println("Displaying the details");
+		
+		synchronized (this) { // the access to the current instance is synchronized --> just one thread can access it at any time 
+			System.out.println(id + " / " + name);
+		}
+		
+		System.out.println("Finished displaying the product");
 	}
 
 	@Override
